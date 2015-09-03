@@ -1,20 +1,17 @@
 from sys import argv, exit
 
-
-types = {
-	
-	'celsius': lambda temp: ((temp * (9/5)) + 32),
-	'fahrenheit': lambda temp: ((temp - 32) * (5/9))
-
+degree = {
+		'celsius': lambda temp:((float(9)/5)*temp)+32 ,
+		'fahrenheit': lambda temp:(temp- 32)*(float(5)/9)
 }
 
-if len(argv) != 3 or argv[1] not in types:
-	print "Usage %s <%s> temp" % (argv[0], ' | '.join(types))
+if len(argv) != 3 or argv[1] not in degree:
+	print "Usage %s <%s> temp" % (argv[0], ' | '.join(degree))
 	exit(1)
 
-temp = map(float, argv[2])
-print "test!"
-print types[argv[1]](temp)
+temp = float(argv[2])
+#print type(temp)
+print degree[argv[1]](temp)
 
 
 #def fahToCel(temp):
