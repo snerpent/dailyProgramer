@@ -1,28 +1,49 @@
 # /bash/bin/python
 
-from sys import argv, exit
+from sys import argv
+#from functools import partial
 
 def cipher(s,r):
+	code = ""
 	for each in s:
-		if each.isupper:
-			print char((ord(each)-r)%26+65)
+		if str.isupper(each):
+			code += chr(int((ord(each)-ord('A'))+r)%26+ord('A'))
 		else:
-			char((ord(each)-r)%26+97)
+			code += chr(int((ord(each)-ord('a'))+r)%26+ord('a'))
+	print code
 
-def decipher():
-	return x
+
+def decipher(s,r):
+	decode = ""
+	for each in s:
+		if str.isupper(each):
+			if (ord(each)-ord('A')-r) < 0:
+				decode +=  chr(((ord(each)-ord('A')-r)+26)+ord('A'))
+			else:
+				decode += chr(((ord(each)-ord('A')-r))+ord('A'))
+		else:
+			if (ord(each)-ord('a')-r) < 0:
+				decode += chr(((ord(each)-ord('a')-r)+26)+ord('a'))
+			else:
+				decode += chr(((ord(each)-ord('a')-r))+ord('a'))
+
+	print decode
 
 options = {
 	
-	'cipher': cipher([argv[1]],[arg[2]]),
-	'decipher': print '2'
-}
+		'cipher': cipher,
+		'decipher': decipher
 
-if len(argv) =! 2 or argv[1] is not in options:
+	}
 
-	print "Usage %s <%s> Number of ciphers" % (argv[0], ' | '.join(options))
+
+if len(argv) != 4 or argv[1] not in options:
+
+	print "Usage %s <%s> Rotation" % (argv[0], ' | '.join(options))
 	exit(1)
 
-print options[argv[1]](x)
+#print argv[1]
+
+options[argv[1]](argv[2],int(argv[3]))
 
 ## usage python chE3.py cipher
