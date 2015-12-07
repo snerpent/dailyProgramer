@@ -11,32 +11,27 @@ function code(){
 	var alphaString = "HELLO THIS IS A TEST";
 	var morseString = "";
 
-	while (alphaString = "") {
-
 		for (i = 0; i < alphaString.length; i++){
-
-			for (j = 0; j < alphaKey.length; j++) {
-
-
-				if (alphaString[i] == " "){
 				
-					if (alphaString[i] == alphaKey[j]) {
+			if (alphaString[i] == " "){
 
-							morseString += morseKey[j];
+				morseString += " / ";
+			}
 
-					}
+			else {
+				for (j = 0; j < alphaKey.length; j++) {
 
+					
+						if (alphaString[i] == alphaKey[j]) {
 
+								morseString += morseKey[j] + " ";
 
+						}
 				}
 			}
 		}
 
-
-
-	}
-
-	console.log("code works");
+		console.log(morseString);
 }
 
 function decode(){
@@ -73,7 +68,6 @@ function decode(){
 	//while (codedString.search(" ") != -1);
 
 	console.log("The answer is " + solvedString);
-	console.log(codedString);
 	
 	
 
