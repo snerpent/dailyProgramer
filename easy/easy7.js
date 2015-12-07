@@ -14,11 +14,27 @@ function code(){
 }
 
 function decode(){
-	var stepString;
-	if " / ", then
-		take the string
+	var codedString = ".... .-.. .-.. ---";
+	var letter = codedString.split(" ");
+	var solvedString = "";
 
-	console.log("decode works");
+
+	if (codedString.substring(0, 3) == " / " ) {
+		solvedString += " ";
+	}
+
+	else{
+
+		for (i = 0; i < morseKey.length; i++){
+			if (codedString.split(" ", 1) == morseKey[i]){
+				solvedString += alphaKey[i];
+				codedString = codedString.slice(0, codedString.split(" ", 1).length);
+		}
+		
+
+	}
+
+	console.log("The answer is " + solvedString);
 
 }
 
